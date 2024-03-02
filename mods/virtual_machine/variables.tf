@@ -27,3 +27,8 @@ variable "resource_group_location" {
   description = "Location of the Resource Group"
   type        = string
 }
+
+variable "environment" {
+  description = "Environment name for deployment"
+  type        = string
+}

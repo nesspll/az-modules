@@ -29,3 +29,8 @@ variable "vm_machine_name" {
   description = ""
   type = string
 }
+
+variable "environment" {
+  description = "Environment name for deployment"
+  type        = string
+}

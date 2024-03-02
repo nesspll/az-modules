@@ -6,6 +6,7 @@
 module "virtual_machine" {
   source = "./virtual_machine"
 
+  environment = var.environment
   interface_name  = var.interface_name
   network_name    = var.network_name
   subnet_name     = var.subnet_name
