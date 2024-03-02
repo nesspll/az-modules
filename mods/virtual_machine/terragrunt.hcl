@@ -5,6 +5,6 @@ dependency "resource_group" {
 }
 
 inputs = {
-  resource_group_name = dependency.resource_group.outputs.resource_group_name
-  location            = dependency.resource_group.outputs.resource_group_location
+  resource_group_name                = dependency.resource_group.outputs.resource_group_name
+  resource_group_location            = dependency.resource_group.outputs.resource_group_location
 }

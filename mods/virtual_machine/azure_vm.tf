@@ -1,7 +1,7 @@
 resource "azurerm_virtual_network" "vm-network" {
   name                = var.network_name
   address_space       = ["10.0.0.0/16"]
-  location            = var.location
+  location            = var.resource_group_location
   resource_group_name = var.resource_group_name
 }
 
@@ -14,7 +14,7 @@ resource "azurerm_subnet" "vm-subnet" {
 
 resource "azurerm_network_interface" "vm-interface" {
   name                = var.interface_name
-  location            = var.location
+  location            = var.resource_group_location
   resource_group_name = var.resource_group_name
 
   ip_configuration {
@@ -27,7 +27,7 @@ resource "azurerm_network_interface" "vm-interface" {
 resource "azurerm_linux_virtual_machine" "vm-machine" {
   name                = var.vm_machine_name
   resource_group_name = var.resource_group_name
-  location            = var.location
+  location            = var.resource_group_location
   size                = "Standard_F2"
   admin_username      = "adminuser"
   network_interface_ids = [
