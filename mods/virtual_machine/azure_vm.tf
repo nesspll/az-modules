@@ -1,3 +1,8 @@
+resource "azurerm_resource_group" "rg-vm-testing" {
+  name     = var.resource_group_name
+  location = var.resource_group_location
+}
+
 resource "azurerm_virtual_network" "vm-network" {
   name                = var.network_name
   address_space       = ["10.0.0.0/16"]
