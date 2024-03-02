@@ -1,9 +1,3 @@
-provider "azurerm" {
-  features {}
-  # Ensure you've authenticated to Azure prior to using Terraform
-}
-
-
 
 
 module "resource_group" {
