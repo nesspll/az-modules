@@ -1,7 +1,7 @@
-resource "azurerm_resource_group" "rg-vm-testing" {
-  name     = "${var.resource_group_name}-${var.environment}"
-  location = var.resource_group_location
-}
+#resource "azurerm_resource_group" "rg-vm-testing" {
+#  name     = "${var.resource_group_name}-${var.environment}"
+#  location = var.resource_group_location
+#}
 
 resource "azurerm_virtual_network" "vm-network" {
   name                = var.network_name
