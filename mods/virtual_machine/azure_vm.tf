@@ -6,21 +6,21 @@
 resource "azurerm_virtual_network" "vm-network" {
   name                = var.network_name
   address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.rg-vm-testing.location
-  resource_group_name = azurerm_resource_group.rg-vm-testing.name
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
 }
 
 resource "azurerm_subnet" "vm-subnet" {
   name                 = var.subnet_name
-  resource_group_name  = azurerm_resource_group.rg-vm-testing.name
+  resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vm-network.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
 resource "azurerm_network_interface" "vm-interface" {
   name                = var.interface_name
-  location            = azurerm_resource_group.rg-vm-testing.location
-  resource_group_name = azurerm_resource_group.rg-vm-testing.name
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
 
   ip_configuration {
     name                          = "internal"
@@ -31,8 +31,8 @@ resource "azurerm_network_interface" "vm-interface" {
 
 resource "azurerm_linux_virtual_machine" "vm-machine" {
   name                = var.vm_machine_name
-  resource_group_name = azurerm_resource_group.rg-vm-testing.name
-  location            = azurerm_resource_group.rg-vm-testing.location
+  resource_group_name = var.resource_group_name
+  location            = var.resource_group_location
   size                = "Standard_F2"
   admin_username      = "adminuser"
   network_interface_ids = [
